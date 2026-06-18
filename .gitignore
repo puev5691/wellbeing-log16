@@ -35,3 +35,16 @@ secrets*
 # Local log16 config
 config/paths.json
 config/*.local.json
+# Additional local/runtime safety
+runtime-state.json
+*.state.json
+*.sqlite
+*.db
+*.bak
+*.backup
+*.tmp
+.coverage
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+.DS_Store

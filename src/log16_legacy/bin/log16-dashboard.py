@@ -17,6 +17,7 @@ sys.path.insert(0, "/data/wellbeing/repos/wellbeing-log16/src")
 
 from log16.review.decisions import apply_review_decision
 from log16.storage.layout import RuntimeLayout
+from log16.storage.status import status_counts as collect_status_counts
 
 HOST = "127.0.0.1"
 PORT = 8898
@@ -90,23 +91,7 @@ def count_json(path: Path) -> int:
     return len(list(path.glob("*.json"))) if path.exists() else 0
 
 def status_counts() -> dict[str, int]:
-    return {
-        "themes": count_json(ROOT / "themes" / "captured"),
-        "tasks_proposed": count_json(ROOT / "derived-tasks" / "proposed"),
-        "tasks_routed": count_json(ROOT / "derived-tasks" / "routed"),
-        "tasks_dispatched": count_json(ROOT / "derived-tasks" / "dispatched"),
-        "tasks_done": count_json(ROOT / "derived-tasks" / "done"),
-        "requests_pending": count_json(ROOT / "entity-requests" / "pending"),
-        "requests_done": count_json(ROOT / "entity-requests" / "done"),
-        "responses_review": count_json(NEEDS_REVIEW),
-        "responses_approved": count_json(APPROVED),
-        "responses_revision": count_json(REVISION),
-        "responses_rejected": count_json(REJECTED),
-        "responses_failed": count_json(ROOT / "entity-responses" / "failed"),
-        "runner_reports": len([p for p in (ROOT / "runner-reports").iterdir() if p.is_dir()]) if (ROOT / "runner-reports").exists() else 0,
-        "pult_runs": len([p for p in (ROOT / "pult-runs").iterdir() if p.is_dir()]) if (ROOT / "pult-runs").exists() else 0,
-    }
-
+    return collect_status_counts(RuntimeLayout(ROOT))
 def recent_files(patterns: list[str], limit: int = 10) -> list[Path]:
     out = []
     for pat in patterns:

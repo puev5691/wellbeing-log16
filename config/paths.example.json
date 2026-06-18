@@ -1,0 +1,12 @@
+{
+  "runtime_root": "/data/wellbeing/obs/log16",
+  "legacy_runtime_root": "/data/wellbeing/obs/consultant/outbox/log16-kernel",
+  "repo_root": "/data/wellbeing/repos/wellbeing-log16",
+  "outbox_root": "/data/wellbeing/obs/consultant/outbox",
+  "mode": "lab",
+  "notes": [
+    "runtime_root is the future canonical log16 state directory",
+    "legacy_runtime_root is preserved until migration is tested",
+    "do not commit private runtime state"
+  ]
+}

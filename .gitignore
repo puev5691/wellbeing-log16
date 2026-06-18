@@ -30,3 +30,8 @@ secrets*
 *secret*
 *token*
 *key*
+# Local Obsidian workspace
+.obsidian/
+# Local log16 config
+config/paths.json
+config/*.local.json

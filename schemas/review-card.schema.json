@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 review_card",
+  "type": "object",
+  "required": [
+    "review_id",
+    "answer_id",
+    "review_status",
+    "reviewer",
+    "created_at"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string"
+    },
+    "answer_id": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "accepted_partial",
+        "needs_review",
+        "source_review_required",
+        "rejected"
+      ]
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "accepted_parts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejected_parts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

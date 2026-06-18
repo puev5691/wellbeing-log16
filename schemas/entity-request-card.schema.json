@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 entity request card",
+  "type": "object",
+  "required": ["request_id", "target_entity", "question", "expected_output", "status"],
+  "properties": {
+    "request_id": {"type": "string"},
+    "target_entity": {"type": "string"},
+    "source_case": {"type": "string"},
+    "source_log16_cards": {"type": "array", "items": {"type": "string"}},
+    "question": {"type": "string"},
+    "expected_output": {"type": "string"},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "status": {"type": "string", "enum": ["pending", "running", "done", "failed", "cancelled"]},
+    "created_at": {"type": "string"}
+  }
+}

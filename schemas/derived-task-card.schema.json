@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 derived task card",
+  "type": "object",
+  "required": ["task_id", "title", "source_theme", "target_entity", "expected_output", "status"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "title": {"type": "string"},
+    "source_theme": {"type": "string"},
+    "source_event": {"type": "string"},
+    "target_entity": {"type": "string"},
+    "expected_output": {"type": "string"},
+    "reason": {"type": "string"},
+    "done_criteria": {"type": "array", "items": {"type": "string"}},
+    "priority": {"type": "string", "enum": ["low", "normal", "high", "urgent"]},
+    "risk_level": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+    "status": {"type": "string", "enum": ["proposed", "routed", "running", "blocked", "needs_review", "done", "rejected", "superseded", "archived"]},
+    "created_at": {"type": "string"}
+  }
+}

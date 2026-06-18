@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 theme card",
+  "type": "object",
+  "required": ["theme_id", "title", "source_event", "status"],
+  "properties": {
+    "theme_id": {"type": "string"},
+    "title": {"type": "string"},
+    "source_event": {"type": "string"},
+    "summary": {"type": "string"},
+    "related_entities": {"type": "array", "items": {"type": "string"}},
+    "related_sources": {"type": "array", "items": {"type": "string"}},
+    "status": {"type": "string", "enum": ["captured", "evidence_needed", "tasks_generated", "in_review", "resolved", "archived"]},
+    "created_at": {"type": "string"}
+  }
+}

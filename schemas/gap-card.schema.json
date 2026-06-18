@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 gap_card",
+  "type": "object",
+  "required": [
+    "gap_id",
+    "source_answer_id",
+    "gap_type",
+    "description",
+    "status"
+  ],
+  "properties": {
+    "gap_id": {
+      "type": "string"
+    },
+    "source_answer_id": {
+      "type": "string"
+    },
+    "gap_type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "missing_decision": {
+      "type": "string"
+    },
+    "missing_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "affected_entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "expected_resolution_artifact": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "detected",
+        "routed",
+        "needs_author",
+        "needs_source_review",
+        "in_progress",
+        "resolved",
+        "rejected",
+        "archived"
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 approved_answer_card",
+  "type": "object",
+  "required": [
+    "approved_answer_id",
+    "answer_id",
+    "fast_answer_text",
+    "status",
+    "scope"
+  ],
+  "properties": {
+    "approved_answer_id": {
+      "type": "string"
+    },
+    "answer_id": {
+      "type": "string"
+    },
+    "fast_answer_text": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_required_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "deprecated",
+        "superseded"
+      ]
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string"
+    }
+  }
+}

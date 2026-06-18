@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 task batch",
+  "type": "object",
+  "required": ["batch_id", "source_theme", "tasks", "status"],
+  "properties": {
+    "batch_id": {"type": "string"},
+    "source_theme": {"type": "string"},
+    "tasks": {"type": "array", "items": {"type": "string"}},
+    "operator_summary": {"type": "string"},
+    "status": {"type": "string"},
+    "created_at": {"type": "string"}
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 task_card",
+  "type": "object",
+  "required": [
+    "task_id",
+    "task_type",
+    "owner_entity",
+    "question",
+    "expected_output",
+    "status"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "source_answer_id": {
+      "type": "string"
+    },
+    "task_type": {
+      "type": "string"
+    },
+    "owner_entity": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "expected_output": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "normal",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "routed",
+        "accepted",
+        "in_progress",
+        "blocked",
+        "needs_author",
+        "done",
+        "rejected",
+        "archived"
+      ]
+    },
+    "route_to": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

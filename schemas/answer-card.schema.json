@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "log16 answer_card",
+  "type": "object",
+  "required": [
+    "answer_id",
+    "question_original",
+    "answer_pattern",
+    "answer_text",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "answer_id": {
+      "type": "string"
+    },
+    "question_original": {
+      "type": "string"
+    },
+    "question_normalized": {
+      "type": "string"
+    },
+    "answer_pattern": {
+      "type": "string"
+    },
+    "answer_text": {
+      "type": "string"
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "generated",
+        "needs_review",
+        "accepted_partial",
+        "approved",
+        "deprecated",
+        "superseded",
+        "rejected"
+      ]
+    },
+    "scope": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "derived_tasks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  }
+}

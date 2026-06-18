@@ -18,6 +18,7 @@ sys.path.insert(0, "/data/wellbeing/repos/wellbeing-log16/src")
 from log16.review.decisions import apply_review_decision
 from log16.storage.layout import RuntimeLayout
 from log16.storage.status import status_counts as collect_status_counts
+from log16.storage.cards import safe_read_json as card_safe_read_json, write_json as card_write_json
 
 HOST = "127.0.0.1"
 PORT = 8898
@@ -78,15 +79,10 @@ def read_text_file(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 def load_json(path: Path) -> dict[str, Any] | None:
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
+    return card_safe_read_json(path)
 
 def save_json(path: Path, data: dict[str, Any]):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-
+    card_write_json(path, data)
 def count_json(path: Path) -> int:
     return len(list(path.glob("*.json"))) if path.exists() else 0
 

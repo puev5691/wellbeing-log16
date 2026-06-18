@@ -11,6 +11,12 @@ def read_json(path: str | Path) -> JsonObject:
     p = Path(path)
     return json.loads(p.read_text(encoding="utf-8"))
 
+def safe_read_json(path: str | Path) -> JsonObject | None:
+    try:
+        return read_json(path)
+    except Exception:
+        return None
+
 def write_json(path: str | Path, data: JsonObject) -> Path:
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)

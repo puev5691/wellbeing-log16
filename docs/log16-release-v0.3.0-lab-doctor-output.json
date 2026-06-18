@@ -1,0 +1,168 @@
+{
+  "ok": true,
+  "status": "OK",
+  "failures": 0,
+  "warnings": 0,
+  "repo": "/data/wellbeing/repos/wellbeing-log16",
+  "runtime": "/data/wellbeing/obs/log16",
+  "ollama_url": "http://127.0.0.1:11434",
+  "model": "qwen3:8b",
+  "checks": [
+    {
+      "name": "cmd_bash",
+      "status": "ok",
+      "ok": true,
+      "detail": "/usr/bin/bash"
+    },
+    {
+      "name": "cmd_git",
+      "status": "ok",
+      "ok": true,
+      "detail": "/usr/bin/git"
+    },
+    {
+      "name": "cmd_python3",
+      "status": "ok",
+      "ok": true,
+      "detail": "/usr/bin/python3"
+    },
+    {
+      "name": "cmd_curl",
+      "status": "ok",
+      "ok": true,
+      "detail": "/usr/bin/curl"
+    },
+    {
+      "name": "repo_git",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/repos/wellbeing-log16"
+    },
+    {
+      "name": "repo_status",
+      "status": "ok",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "name": "prepublish_check",
+      "status": "ok",
+      "ok": true,
+      "detail": "passed"
+    },
+    {
+      "name": "health_runtime_root",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16"
+    },
+    {
+      "name": "health_themes_captured",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/themes/captured"
+    },
+    {
+      "name": "health_tasks_dispatched",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/derived-tasks/dispatched"
+    },
+    {
+      "name": "health_requests_pending",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-requests/pending"
+    },
+    {
+      "name": "health_requests_done",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-requests/done"
+    },
+    {
+      "name": "health_responses_needs_review",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-responses/needs_review"
+    },
+    {
+      "name": "health_responses_approved",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-responses/approved"
+    },
+    {
+      "name": "health_responses_revision_requested",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-responses/revision_requested"
+    },
+    {
+      "name": "health_reviews",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/reviews"
+    },
+    {
+      "name": "health_reviewed_docs",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/reviewed-docs"
+    },
+    {
+      "name": "health_runner_reports",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/runner-reports"
+    },
+    {
+      "name": "health_bin_log16",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16"
+    },
+    {
+      "name": "health_bin_log16_pult",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16-pult"
+    },
+    {
+      "name": "health_bin_log16_dashboard",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16-dashboard.sh"
+    },
+    {
+      "name": "health_bin_log16_dashboard_py",
+      "status": "ok",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16-dashboard.py"
+    },
+    {
+      "name": "ollama_api",
+      "status": "ok",
+      "ok": true,
+      "detail": "http://127.0.0.1:11434/api/tags"
+    },
+    {
+      "name": "ollama_model",
+      "status": "ok",
+      "ok": true,
+      "detail": "qwen3:8b"
+    },
+    {
+      "name": "disk",
+      "status": "info",
+      "ok": true,
+      "detail": "free=849.8GiB total=915.8GiB"
+    },
+    {
+      "name": "ports",
+      "status": "info",
+      "ok": true,
+      "detail": "LISTEN 0      5          127.0.0.1:8794       0.0.0.0:* | LISTEN 0      4096               *:11434            *:*"
+    }
+  ]
+}

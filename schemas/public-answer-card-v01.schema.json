@@ -1,0 +1,38 @@
+{
+  "schema_version": "public-answer-card-v01",
+  "description": "Minimal schema for public reusable answer cards.",
+  "required": [
+    "schema_version",
+    "answer_id",
+    "question_class",
+    "canonical_question",
+    "short_answer",
+    "long_answer_md",
+    "status",
+    "source_status",
+    "review_level",
+    "expiry_condition",
+    "related_docs",
+    "related_tasks",
+    "routing"
+  ],
+  "status_values": [
+    "draft",
+    "reviewed",
+    "approved",
+    "outdated",
+    "needs_revision"
+  ],
+  "source_status_values": [
+    "project_internal",
+    "public_source",
+    "mixed",
+    "needs_sources"
+  ],
+  "review_level_values": [
+    "entity_draft",
+    "operator_review",
+    "reviewed",
+    "public_ready"
+  ]
+}

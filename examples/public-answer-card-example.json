@@ -1,0 +1,28 @@
+{
+  "schema_version": "public-answer-card-v01",
+  "answer_id": "what-is-log16-v01",
+  "question_class": "project_explanation",
+  "canonical_question": "Что такое log16?",
+  "short_answer": "log16 — это экспериментальный локальный контур проекта БЛАГОПОЛУЧИЕ для работы с вопросами, ответами, задачами, review и reusable answers.",
+  "long_answer_md": "log16 помогает организовать путь от входящего вопроса к проверяемому ответу, задаче или обновлению знания. На текущем этапе это local lab system, а не готовый публичный продукт.",
+  "status": "draft",
+  "source_status": "project_internal",
+  "review_level": "entity_draft",
+  "expiry_condition": "устаревает при изменении архитектуры log16 или публичного статуса проекта",
+  "related_docs": [
+    "docs/public/project/what-is-log16.md",
+    "docs/public/status/current-stage.md"
+  ],
+  "related_tasks": [
+    "docs/public/tasks/open-task-classes.md"
+  ],
+  "routing": {
+    "next_docs": [
+      "docs/public/participation/how-to-start.md"
+    ],
+    "next_actions": [
+      "read current-stage",
+      "run log16 doctor if testing locally"
+    ]
+  }
+}

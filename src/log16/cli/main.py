@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 from pathlib import Path
 from typing import Sequence
@@ -122,6 +123,28 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
     layout = make_layout(args.root)
     return run_external([str(dashboard_path(layout))])
 
+
+def cmd_doctor(args: argparse.Namespace) -> int:
+    cfg = load_config()
+    script = cfg.repo_root / "scripts" / "log16-doctor-readonly.sh"
+
+    if not script.exists():
+        print(f"doctor script missing: {script}")
+        return 2
+
+    env = os.environ.copy()
+    if args.repo:
+        env["LOG16_REPO"] = args.repo
+    if args.runtime:
+        env["LOG16_RUNTIME"] = args.runtime
+    if args.ollama_url:
+        env["LOG16_OLLAMA_URL"] = args.ollama_url
+    if args.model:
+        env["LOG16_MODEL"] = args.model
+
+    proc = subprocess.run([str(script)], env=env)
+    return int(proc.returncode)
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="log16", description="Unified CLI for wellbeing-log16")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -140,6 +163,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_check.add_argument("--skip-bins", action="store_true", help="skip critical bin checks")
     p_check.add_argument("--dashboard-url", help="optional dashboard URL check")
     p_check.set_defaults(func=cmd_check)
+
+    p_doctor = sub.add_parser("doctor", help="run read-only environment doctor")
+    p_doctor.add_argument("--repo", help="repo root override")
+    p_doctor.add_argument("--runtime", help="runtime root override")
+    p_doctor.add_argument("--ollama-url", help="Ollama API URL override")
+    p_doctor.add_argument("--model", help="required model override")
+    p_doctor.set_defaults(func=cmd_doctor)
 
     p_review = sub.add_parser("review-apply", help="apply review decision to a response card")
     p_review.add_argument("--root", help="runtime root override")

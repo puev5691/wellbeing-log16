@@ -1,0 +1,18 @@
+{
+  "schema_version": "public-answer-card-v01",
+  "answer_id": "windows-support-v01",
+  "question_class": "windows_support",
+  "canonical_question": "Можно ли использовать Windows?",
+  "short_answer": "Windows support рассматривается как экспериментальный маршрут через WSL2.",
+  "long_answer_md": "Основной кандидатный путь: Windows 11, WSL2, Ubuntu, Ollama, qwen3:8b и log16 repo/runtime внутри Linux-like layout. Этот маршрут ещё требует проверки на отдельной машине.",
+  "status": "draft",
+  "source_status": "project_internal",
+  "review_level": "entity_draft",
+  "expiry_condition": "устаревает после Windows/WSL test bench",
+  "related_docs": [],
+  "related_tasks": [],
+  "routing": {
+    "next_docs": [],
+    "next_actions": []
+  }
+}

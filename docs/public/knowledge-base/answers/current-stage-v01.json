@@ -1,0 +1,18 @@
+{
+  "schema_version": "public-answer-card-v01",
+  "answer_id": "current-stage-v01",
+  "question_class": "status_explanation",
+  "canonical_question": "В какой стадии находится log16?",
+  "short_answer": "log16 находится на стадии local lab milestone.",
+  "long_answer_md": "Текущая подтверждённая контрольная точка — v0.3.0-lab. Tests, doctor, doctor JSON, runtime health и prepublish-check подтверждены локально.",
+  "status": "draft",
+  "source_status": "project_internal",
+  "review_level": "entity_draft",
+  "expiry_condition": "устаревает при новом release tag или изменении статуса публикации",
+  "related_docs": [],
+  "related_tasks": [],
+  "routing": {
+    "next_docs": [],
+    "next_actions": []
+  }
+}

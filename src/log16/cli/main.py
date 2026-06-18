@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Sequence
 
 from log16.config import load_config
+from log16.doctor.checks import doctor_to_dict, run_doctor
 from log16.health.checks import checks_to_dict, run_checks
 from log16.review.decisions import VALID_DECISIONS, apply_review_decision
 from log16.storage.layout import RuntimeLayout
@@ -125,25 +126,36 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
 
 
 def cmd_doctor(args: argparse.Namespace) -> int:
-    cfg = load_config()
-    script = cfg.repo_root / "scripts" / "log16-doctor-readonly.sh"
+    result = run_doctor(
+        repo=args.repo,
+        runtime=args.runtime,
+        ollama_url=args.ollama_url or "http://127.0.0.1:11434",
+        model=args.model or "qwen3:8b",
+        include_ollama=not args.skip_ollama,
+        include_prepublish=not args.skip_prepublish,
+        include_bins=not args.skip_bins,
+    )
+    data = doctor_to_dict(result)
 
-    if not script.exists():
-        print(f"doctor script missing: {script}")
-        return 2
+    if args.json:
+        print(json.dumps(data, ensure_ascii=False, indent=2))
+    else:
+        print("# log16 doctor")
+        print()
+        print(f"repo: {data['repo']}")
+        print(f"runtime: {data['runtime']}")
+        print(f"ollama_url: {data['ollama_url']}")
+        print(f"model: {data['model']}")
+        print()
+        for item in data["checks"]:
+            status = item["status"].upper()
+            print(f"{status}: {item['name']} -> {item['detail']}")
+        print()
+        print(f"failures: {data['failures']}")
+        print(f"warnings: {data['warnings']}")
+        print(f"DOCTOR_STATUS: {data['status']}")
 
-    env = os.environ.copy()
-    if args.repo:
-        env["LOG16_REPO"] = args.repo
-    if args.runtime:
-        env["LOG16_RUNTIME"] = args.runtime
-    if args.ollama_url:
-        env["LOG16_OLLAMA_URL"] = args.ollama_url
-    if args.model:
-        env["LOG16_MODEL"] = args.model
-
-    proc = subprocess.run([str(script)], env=env)
-    return int(proc.returncode)
+    return 0 if data["ok"] else 2
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="log16", description="Unified CLI for wellbeing-log16")
@@ -164,11 +176,15 @@ def build_parser() -> argparse.ArgumentParser:
     p_check.add_argument("--dashboard-url", help="optional dashboard URL check")
     p_check.set_defaults(func=cmd_check)
 
-    p_doctor = sub.add_parser("doctor", help="run read-only environment doctor")
+    p_doctor = sub.add_parser("doctor", help="run environment doctor")
     p_doctor.add_argument("--repo", help="repo root override")
     p_doctor.add_argument("--runtime", help="runtime root override")
     p_doctor.add_argument("--ollama-url", help="Ollama API URL override")
     p_doctor.add_argument("--model", help="required model override")
+    p_doctor.add_argument("--json", action="store_true", help="print JSON")
+    p_doctor.add_argument("--skip-ollama", action="store_true", help="skip Ollama API/model checks")
+    p_doctor.add_argument("--skip-prepublish", action="store_true", help="skip prepublish-check")
+    p_doctor.add_argument("--skip-bins", action="store_true", help="skip critical runtime bin checks")
     p_doctor.set_defaults(func=cmd_doctor)
 
     p_review = sub.add_parser("review-apply", help="apply review decision to a response card")

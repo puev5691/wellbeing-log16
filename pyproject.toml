@@ -10,3 +10,6 @@ where = ["src"]
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
+
+[project.scripts]
+log16 = "log16.cli.main:main"

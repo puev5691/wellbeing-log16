@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Sequence
 
 from log16.config import load_config
+from log16.health.checks import checks_to_dict, run_checks
 from log16.review.decisions import VALID_DECISIONS, apply_review_decision
 from log16.storage.layout import RuntimeLayout
 from log16.storage.status import status_counts
@@ -47,6 +48,22 @@ def cmd_status(args: argparse.Namespace) -> int:
         for key in sorted(counts):
             print(f"{key}: {counts[key]}")
     return 0
+
+def cmd_check(args: argparse.Namespace) -> int:
+    checks = run_checks(
+        root=args.root,
+        include_bins=not args.skip_bins,
+        dashboard_url=args.dashboard_url,
+    )
+    data = checks_to_dict(checks)
+    if args.json:
+        print(json.dumps(data, ensure_ascii=False, indent=2))
+    else:
+        print(f"ok: {data['ok']}")
+        for item in data["checks"]:
+            status = "OK" if item["ok"] else "FAIL"
+            print(f"{status}: {item['name']} -> {item['detail']}")
+    return 0 if data["ok"] else 1
 
 def cmd_review_apply(args: argparse.Namespace) -> int:
     layout = make_layout(args.root)
@@ -116,6 +133,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_status.add_argument("--root", help="runtime root override")
     p_status.add_argument("--json", action="store_true", help="print JSON")
     p_status.set_defaults(func=cmd_status)
+
+    p_check = sub.add_parser("check", help="run health checks")
+    p_check.add_argument("--root", help="runtime root override")
+    p_check.add_argument("--json", action="store_true", help="print JSON")
+    p_check.add_argument("--skip-bins", action="store_true", help="skip critical bin checks")
+    p_check.add_argument("--dashboard-url", help="optional dashboard URL check")
+    p_check.set_defaults(func=cmd_check)
 
     p_review = sub.add_parser("review-apply", help="apply review decision to a response card")
     p_review.add_argument("--root", help="runtime root override")

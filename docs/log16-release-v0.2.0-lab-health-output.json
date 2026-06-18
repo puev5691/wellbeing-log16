@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "runtime_root",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16"
+    },
+    {
+      "name": "themes_captured",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/themes/captured"
+    },
+    {
+      "name": "tasks_dispatched",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/derived-tasks/dispatched"
+    },
+    {
+      "name": "requests_pending",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-requests/pending"
+    },
+    {
+      "name": "requests_done",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-requests/done"
+    },
+    {
+      "name": "responses_needs_review",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-responses/needs_review"
+    },
+    {
+      "name": "responses_approved",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-responses/approved"
+    },
+    {
+      "name": "responses_revision_requested",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/entity-responses/revision_requested"
+    },
+    {
+      "name": "reviews",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/reviews"
+    },
+    {
+      "name": "reviewed_docs",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/reviewed-docs"
+    },
+    {
+      "name": "runner_reports",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/runner-reports"
+    },
+    {
+      "name": "bin_log16",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16"
+    },
+    {
+      "name": "bin_log16_pult",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16-pult"
+    },
+    {
+      "name": "bin_log16_dashboard",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16-dashboard.sh"
+    },
+    {
+      "name": "bin_log16_dashboard_py",
+      "ok": true,
+      "detail": "/data/wellbeing/obs/log16/bin/log16-dashboard.py"
+    }
+  ]
+}

@@ -12,6 +12,12 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 
+import sys
+sys.path.insert(0, "/data/wellbeing/repos/wellbeing-log16/src")
+
+from log16.review.decisions import apply_review_decision
+from log16.storage.layout import RuntimeLayout
+
 HOST = "127.0.0.1"
 PORT = 8898
 
@@ -306,77 +312,18 @@ def render_review_item(path: Path) -> str:
 """
 
 def review_decision(path: Path, decision: str, operator_text: str, operator_note: str) -> tuple[str, Path | None]:
-    if not is_allowed_path(path) or path.parent != NEEDS_REVIEW:
-        return "ERROR: invalid review path", None
-    data = load_json(path)
-    if not data:
-        return "ERROR: cannot read response card", None
-
-    response_id = data.get("response_id") or path.stem
-    review_id = f"review__{stamp()}__{response_id}"
-    target_dir = {
-        "approve_as_is": APPROVED,
-        "approve_with_edit": APPROVED,
-        "request_revision": REVISION,
-        "reject": REJECTED,
-    }.get(decision)
-
-    if target_dir is None:
-        return f"ERROR: unknown decision {decision}", None
-
-    reviewed_doc_path = None
-    if decision == "approve_with_edit":
-        reviewed_doc_path = REVIEWED_DOCS / f"{response_id}.md"
-        reviewed_doc_path.write_text(operator_text, encoding="utf-8")
-
-    review_card = {
-        "review_id": review_id,
-        "response_id": response_id,
-        "source_response_card": str(path),
-        "decision": decision,
-        "operator_note": operator_note,
-        "reviewed_doc_path": str(reviewed_doc_path) if reviewed_doc_path else None,
-        "created_at": now(),
-        "created_by": "OPERATOR/log16-dashboard"
-    }
-    review_json = REVIEWS / f"{review_id}.json"
-    review_md = REVIEWS / f"{review_id}.md"
-    save_json(review_json, review_card)
-    review_md.write_text(f"""# {review_id}
-
-Decision:
-{decision}
-
-Response:
-{response_id}
-
-Operator note:
-{operator_note}
-
-Reviewed doc:
-{reviewed_doc_path if reviewed_doc_path else "none"}
-
-Source response card:
-{path}
-
-КТО: ОПЕРАТОР / log16-dashboard
-ДЛЯ ЧЕГО: фиксация решения review по response card
-СТАТУС: {decision}
-""", encoding="utf-8")
-
-    data["review_status"] = decision
-    data["review_id"] = review_id
-    data["reviewed_at"] = now()
-    data["operator_note"] = operator_note
-    if reviewed_doc_path:
-        data["reviewed_doc_path"] = str(reviewed_doc_path)
-
-    target_path = target_dir / path.name
-    save_json(target_path, data)
-    path.unlink()
-
-    return f"PASS review decision fixed: {decision}", review_md
-
+    try:
+        result = apply_review_decision(
+            path,
+            RuntimeLayout(ROOT),
+            decision=decision,
+            operator_text=operator_text,
+            operator_note=operator_note,
+            reviewer="OPERATOR/log16-dashboard",
+        )
+        return f"PASS review decision fixed: {result.decision}", result.review_md_path
+    except Exception as e:
+        return f"ERROR review decision failed: {type(e).__name__}: {e}", None
 def render_decisions() -> str:
     files = sorted(REVIEWS.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
     if not files:

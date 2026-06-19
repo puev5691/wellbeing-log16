@@ -1,0 +1,6 @@
+OK: git status clean
+OK: no runtime-like tracked root paths
+OK: no tracked archive files
+OK: no tracked files over 1 MiB
+OK: no fatal secret-like values found
+READY_FOR_GITHUB_PREP

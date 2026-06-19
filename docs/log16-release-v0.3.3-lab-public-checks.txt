@@ -1,0 +1,39 @@
+# v0.3.3-lab checks
+
+## GitHub public templates
+OK: CONTRIBUTING.md
+OK: .github/ISSUE_TEMPLATE/config.yml
+OK: .github/ISSUE_TEMPLATE/documentation_feedback.md
+OK: .github/ISSUE_TEMPLATE/question_or_gap.md
+OK: .github/ISSUE_TEMPLATE/local_diagnostics_report.md
+OK: .github/ISSUE_TEMPLATE/task_proposal.md
+OK: .github/PULL_REQUEST_TEMPLATE.md
+OK: CONTRIBUTING.md contains: private credentials
+OK: CONTRIBUTING.md contains: local lab
+OK: .github/PULL_REQUEST_TEMPLATE.md contains: private credentials
+OK: .github/ISSUE_TEMPLATE/documentation_feedback.md contains: documentation
+OK: .github/ISSUE_TEMPLATE/question_or_gap.md contains: knowledge-gap
+OK: .github/ISSUE_TEMPLATE/local_diagnostics_report.md contains: diagnostics
+OK: .github/ISSUE_TEMPLATE/task_proposal.md contains: task-proposal
+GITHUB_PUBLIC_TEMPLATES: OK
+
+## root README active v02
+OK: README.md
+OK: docs/public/github-root-readme-draft-v02.md
+OK: README.md matches draft v02
+OK: contains: большими массивами текстовой информации
+OK: contains: БЛАГОПОЛУЧИЕ выступает первым живым полигоном
+OK: contains: любому большому текстовому массиву
+OK: contains: рабочую систему знания
+OK: contains: не является готовым публичным продуктом
+ROOT_README_ACTIVE_V02: OK
+
+## root README activation note
+OK: docs/productization/log16-root-readme-activation-v02.md
+OK: contains: docs/public/github-root-readme-draft-v02.md
+OK: contains: README.md
+OK: contains: unquoted heredoc
+OK: contains: Permission denied
+OK: contains: command not found
+OK: contains: СТАТУС: fixed
+ROOT_README_ACTIVATION_NOTE_V02: OK

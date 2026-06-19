@@ -9,10 +9,22 @@
   "source_status": "project_internal",
   "review_level": "entity_draft",
   "expiry_condition": "устаревает при готовности hosted demo или public release",
-  "related_docs": [],
-  "related_tasks": [],
+  "related_docs": [
+    "docs/public/faq/not-ready-yet.md",
+    "docs/public/status/current-stage.md",
+    "docs/public/publication-boundary.md"
+  ],
+  "related_tasks": [
+    "docs/public/tasks/open-task-classes.md"
+  ],
   "routing": {
-    "next_docs": [],
-    "next_actions": []
+    "next_docs": [
+      "docs/public/faq/how-to-help.md",
+      "docs/public/tasks/open-task-classes.md"
+    ],
+    "next_actions": [
+      "read how-to-help",
+      "review open task classes"
+    ]
   }
 }

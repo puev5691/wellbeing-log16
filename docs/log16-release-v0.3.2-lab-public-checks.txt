@@ -1,0 +1,76 @@
+# v0.3.2-lab checks
+
+## root README active v02
+OK: README.md
+OK: docs/public/github-root-readme-draft-v02.md
+OK: README.md matches draft v02
+OK: contains: большими массивами текстовой информации
+OK: contains: БЛАГОПОЛУЧИЕ выступает первым живым полигоном
+OK: contains: любому большому текстовому массиву
+OK: contains: рабочую систему знания
+OK: contains: не является готовым публичным продуктом
+ROOT_README_ACTIVE_V02: OK
+
+## activation note
+OK: docs/productization/log16-root-readme-activation-v02.md
+OK: contains: docs/public/github-root-readme-draft-v02.md
+OK: contains: README.md
+OK: contains: unquoted heredoc
+OK: contains: Permission denied
+OK: contains: command not found
+OK: contains: СТАТУС: fixed
+ROOT_README_ACTIVATION_NOTE_V02: OK
+
+## public root README v02 draft
+OK: docs/public/github-root-readme-draft-v02.md
+OK: docs/public/github-root-readme-draft-v02-reading-note.md
+OK: contains: большими массивами текстовой информации
+OK: contains: БЛАГОПОЛУЧИЕ выступает первым живым полигоном
+OK: contains: любому большому текстовому массиву
+OK: contains: рабочую систему знания
+OK: contains: не является готовым публичным продуктом
+PUBLIC_ROOT_README_V02: OK
+
+## public root README v01 draft
+OK: docs/public/github-root-readme-draft-v01.md
+OK: docs/public/github-root-readme-activation-note-v01.md
+OK: docs/public/README.md
+OK: docs/public/navigation.md
+OK: docs/public/publication-boundary.md
+OK: docs/public/knowledge-base/answers/index.md
+PUBLIC_ROOT_README_DRAFT: OK
+
+## public docs skeleton
+OK: docs/public/README.md
+OK: docs/public/publication-boundary.md
+OK: docs/public/project/what-is-wellbeing.md
+OK: docs/public/project/what-is-log16.md
+OK: docs/public/faq/index.md
+OK: docs/public/participation/how-to-start.md
+OK: docs/public/tasks/open-task-classes.md
+OK: docs/public/glossary/index.md
+OK: docs/public/status/current-stage.md
+OK: docs/public/knowledge-base/answer-card-template.json
+OK: schemas/public-answer-card-v01.schema.json
+OK: examples/public-answer-card-example.json
+PUBLIC_DOCS_SKELETON: OK
+
+## public answer cards
+OK: docs/public/knowledge-base/answers/current-stage-v01.json
+OK: docs/public/knowledge-base/answers/how-to-help-v01.json
+OK: docs/public/knowledge-base/answers/local-ai-requirements-v01.json
+OK: docs/public/knowledge-base/answers/not-ready-yet-v01.json
+OK: docs/public/knowledge-base/answers/what-is-log16-v01.json
+OK: docs/public/knowledge-base/answers/what-is-wellbeing-v01.json
+OK: docs/public/knowledge-base/answers/windows-support-v01.json
+PUBLIC_ANSWER_CARDS: OK count=7
+
+## public answer links
+OK: docs/public/knowledge-base/answers/current-stage-v01.json
+OK: docs/public/knowledge-base/answers/how-to-help-v01.json
+OK: docs/public/knowledge-base/answers/local-ai-requirements-v01.json
+OK: docs/public/knowledge-base/answers/not-ready-yet-v01.json
+OK: docs/public/knowledge-base/answers/what-is-log16-v01.json
+OK: docs/public/knowledge-base/answers/what-is-wellbeing-v01.json
+OK: docs/public/knowledge-base/answers/windows-support-v01.json
+PUBLIC_ANSWER_LINKS: OK count=7

@@ -1,0 +1,29 @@
+c912a5c Fix root README activation note
+ac05f38 Activate README universal text-field draft
+360bcee Add README universal text-field draft
+70cd2c6 Document log16 v0.3.1-lab milestone
+9e5adcb Add public root README draft
+acb4451 Link public answer cards to docs
+bafd383 Add public FAQ answer cards
+4db0524 Add public knowledge base skeleton
+94076b6 Document log16 v0.3.0-lab milestone
+98babac Add Python log16 doctor module
+690f97f Add log16 doctor CLI bridge
+c12cb7c Add log16 Windows onboarding plan
+a6b443c Add read-only log16 doctor diagnostics
+f82f412 Add log16 productization onboarding plan
+999a5f1 Add guarded GitHub publish script
+6209ff1 Add GitHub publication dry-run scripts
+086092f Add GitHub prepublish sanitation checks
+661ccc3 Document log16 v0.2.0-lab milestone
+3ee2900 Add log16 health check command
+aaeaeee Add CLI bridge for pult and dashboard
+a24cad6 Add unified log16 CLI entrypoint
+6216ef3 Use storage card helpers from dashboard
+7be4027 Use status module from dashboard
+03ed52f Use review module from dashboard
+fc05a62 Add first log16 module split
+de1d980 Finalize log16 git cleanup log
+470ac39 Add log16 git cleanup report
+c302b7a Clean up log16 git snapshot metadata
+667bfb5 Initial lab assembly of wellbeing-log16
